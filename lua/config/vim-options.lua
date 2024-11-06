@@ -15,13 +15,15 @@ vim.cmd("syntax on")
 vim.g.mapleader = " "
 vim.keymap.set("n", "f", "za", { noremap = true, silent = true })
 
+vim.keymap.set("n", "<ESC>", ":noh<CR><ESC>", { noremap = true })
+
 local os_name = vim.loop.os_uname().sysname
 if os_name == "Windows_NT" then
-  -- Use PowerShell on Windows
-  vim.cmd("set shell=powershell.exe")
-  vim.cmd('set shellquote="')
-  vim.cmd("set shellxquote=")
+	-- Use PowerShell on Windows
+	vim.cmd("set shell=powershell.exe")
+	vim.cmd('set shellquote="')
+	vim.cmd("set shellxquote=")
 else
-  -- Use a standard terminal (like Bash) on Linux/macOS
-  vim.cmd("set shell=/bin/bash") -- or /bin/zsh, /usr/bin/fish, etc., depending on preference
+	-- Use a standard terminal (like Bash) on Linux/macOS
+	vim.cmd("set shell=/bin/bash") -- or /bin/zsh, /usr/bin/fish, etc., depending on preference
 end
